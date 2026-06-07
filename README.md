@@ -1,90 +1,118 @@
-# 🚀 Project Management Platform
+# 🚀 Full Stack Project Management Platform
 
-A full-stack Project Management Platform that helps teams organize projects, manage tasks, assign work, track progress, and collaborate efficiently.
+A modern full-stack Project Management Platform that enables teams to organize projects, manage tasks, assign work, track progress, and collaborate efficiently.
 
-Built with a modern tech stack including React, Redux Toolkit, Node.js, Express, Prisma, MySQL, Clerk Authentication, and Docker.
+Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authentication, PostgreSQL (Neon), Inngest, and Docker.
 
 ---
 
 ## 🌐 Live Demo
 
-**Frontend:** https://projecx-manager.vercel.app
-**Backend API:** https://project-management-l2jb.onrender.com
+**Frontend:** https://project-management-three-red.vercel.app/
+
+**Backend API:** https://projecx-manager.vercel.app
 
 ---
 
 ## ✨ Features
 
 ### 🔐 Authentication & Authorization
-- Secure user authentication with Clerk
-- Sign Up / Sign In functionality
-- User session management
-- Protected routes
+
+* Secure authentication using Clerk
+* User Sign Up & Sign In
+* Session management
+* Protected routes
+* User profile synchronization
 
 ### 📁 Project Management
-- Create new projects
-- Update project details
-- Delete projects
-- View all projects
-- Project status tracking
+
+* Create projects
+* Update project details
+* Delete projects
+* View all projects
+* Track project status
 
 ### ✅ Task Management
-- Create tasks within projects
-- Assign tasks to team members
-- Update task status
-- Track task progress
-- Set priorities and deadlines
+
+* Create tasks within projects
+* Assign tasks to team members
+* Update task status
+* Set task priorities
+* Manage deadlines
 
 ### 👥 Team Collaboration
-- User management
-- Role-based access
-- Task assignment system
-- Real-time project visibility
+
+* User management
+* Task assignment workflow
+* Team-based project organization
+* Shared project visibility
 
 ### 📊 Dashboard
-- Project overview
-- Task statistics
-- Progress monitoring
-- Activity tracking
+
+* Project overview
+* Task statistics
+* Progress tracking
+* Activity monitoring
+
+### ⚡ Event-Driven Architecture
+
+* Inngest integration
+* Automatic Clerk user synchronization
+* User creation events
+* User update events
+* User deletion events
 
 ### 🗄️ Database Management
-- Prisma ORM integration
-- MySQL database
-- Efficient relational data handling
+
+* Prisma ORM
+* PostgreSQL (Neon)
+* Relational data modeling
+* Efficient database queries
 
 ### 🐳 Containerization
-- Docker support
-- Easy local development setup
-- Consistent deployment environment
+
+* Docker support
+* Local development environment
+* Consistent deployment workflow
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React.js
-- Redux Toolkit
-- React Router DOM
-- Tailwind CSS
-- Axios
+
+* React.js
+* Redux Toolkit
+* React Router DOM
+* Tailwind CSS
+* Axios
 
 ### Backend
-- Node.js
-- Express.js
-- Prisma ORM
+
+* Node.js
+* Express.js
+* Prisma ORM
 
 ### Database
-- MySQL
+
+* PostgreSQL (Neon)
 
 ### Authentication
-- Clerk
+
+* Clerk
+
+### Event Processing
+
+* Inngest
 
 ### DevOps
-- Docker
-- Docker Compose
+
+* Docker
+* Docker Compose
 
 ### Deployment
-- Vercel
+
+* Vercel
 
 ---
 
@@ -99,11 +127,12 @@ project-management/
 │   └── package.json
 │
 ├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── prisma/
 │   ├── config/
+│   ├── prisma/
+│   ├── inngest/
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/
 │   └── package.json
 │
 ├── docker-compose.yml
@@ -114,10 +143,11 @@ project-management/
 
 ## ⚙️ Installation
 
-### 1️⃣ Clone Repository
+### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/project-management.git
+git clone https://github.com/Sunil-705/project-management.git
+
 cd project-management
 ```
 
@@ -127,7 +157,9 @@ cd project-management
 
 ```bash
 cd client
+
 npm install
+
 npm run dev
 ```
 
@@ -143,8 +175,10 @@ http://localhost:5173
 
 ```bash
 cd server
+
 npm install
-npm run dev
+
+npm run server
 ```
 
 Backend runs on:
@@ -155,15 +189,15 @@ http://localhost:5000
 
 ---
 
-## 🐳 Docker Setup (MySQL)
+## 🐳 Docker Setup
 
-### Start MySQL Container
+Start services:
 
 ```bash
 docker compose up -d
 ```
 
-### Verify Container
+Verify containers:
 
 ```bash
 docker ps
@@ -171,21 +205,7 @@ docker ps
 
 ---
 
-## 🗄️ Database Configuration
-
-Create `.env` file inside server directory:
-
-```env
-DATABASE_URL="mysql://root:root123@localhost:3306/projectdb"
-
-CLERK_SECRET_KEY=your_secret_key
-
-CLERK_PUBLISHABLE_KEY=your_publishable_key
-```
-
----
-
-## Prisma Setup
+## 🗄️ Database Setup
 
 Generate Prisma Client:
 
@@ -193,7 +213,7 @@ Generate Prisma Client:
 npx prisma generate
 ```
 
-Push Schema:
+Push Prisma Schema:
 
 ```bash
 npx prisma db push
@@ -219,9 +239,21 @@ VITE_API_URL=http://localhost:5000
 ### Server (.env)
 
 ```env
-DATABASE_URL=mysql://root:root123@localhost:3306/projectdb
-CLERK_SECRET_KEY=your_secret_key
-PORT=5000
+DATABASE_URL=your_database_url
+
+DIRECT_URL=your_direct_database_url
+
+CLERK_SECRET_KEY=your_clerk_secret_key
+
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+
+CLERK_WEBHOOK_SECRET=your_webhook_secret
+
+INNGEST_EVENT_KEY=your_inngest_event_key
+
+INNGEST_SIGNING_KEY=your_inngest_signing_key
+
+NODE_ENV=development
 ```
 
 ---
@@ -239,7 +271,7 @@ npm run preview
 ### Backend
 
 ```bash
-npm run dev
+npm run server
 npm start
 ```
 
@@ -248,28 +280,32 @@ npm start
 ## 📸 Screenshots
 
 ### Dashboard
-(Add Screenshot)
+
+*Add Screenshot*
 
 ### Project Management
-(Add Screenshot)
+
+*Add Screenshot*
 
 ### Task Board
-(Add Screenshot)
+
+*Add Screenshot*
 
 ### Authentication
-(Add Screenshot)
+
+*Add Screenshot*
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Real-time notifications
-- Team chat system
-- File attachments
-- Kanban board
-- Calendar integration
-- Email notifications
-- Analytics dashboard
+* Real-time notifications
+* Team chat system
+* File attachments
+* Kanban board
+* Calendar integration
+* Email notifications
+* Analytics dashboard
 
 ---
 
@@ -277,17 +313,22 @@ npm start
 
 Contributions are welcome.
 
-1. Fork repository
-2. Create feature branch
-3. Commit changes
-4. Push branch
-5. Create Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push the branch
+5. Open a Pull Request
 
 ---
 
 ## 👨‍💻 Author
 
-Sunil Kumar
+**Sunil Kumar**
 
-GitHub: https: https://github.com/Sunil-705
+GitHub: https://github.com/Sunil-705
+
 LinkedIn: https://www.linkedin.com/in/sunil-kumar-aws-devops
+
+---
+
+⭐ If you found this project useful, consider giving it a star.
