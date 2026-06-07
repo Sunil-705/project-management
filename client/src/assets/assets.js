@@ -13,24 +13,24 @@ export const assets = {
 export const dummyUsers = [
     {
         "id": "user_1",
-        "name": "Alex Smith",
-        "email": "alexsmith@example.com",
+        "name": "Sunil Kumar",
+        "email": "sunil11qq11@gmail.com",
         "image": profile_img_a,
         "createdAt": "2025-10-06T11:04:03.485Z",
         "updatedAt": "2025-10-06T11:04:03.485Z"
     },
     {
         "id": "user_2",
-        "name": "John Warrel",
-        "email": "johnwarrel@example.com",
+        "name": "Manish ",
+        "email": "manish@eaxmple.com",
         "image": profile_img_j,
         "createdAt": "2025-10-09T13:20:24.360Z",
         "updatedAt": "2025-10-09T13:20:24.360Z"
     },
     {
         "id": "user_3",
-        "name": "Oliver Watts",
-        "email": "oliverwatts@example.com",
+        "name": "Sumit Kumar",
+        "email": "tiwari@example.com",
         "image": profile_img_o,
         "createdAt": "2025-09-01T04:31:22.043Z",
         "updatedAt": "2025-09-26T09:03:37.866Z"
@@ -257,8 +257,8 @@ export const dummyWorkspaces = [
     },
     {
         "id": "org_2",
-        "name": "Cloud Ops Hub",
-        "slug": "cloud-ops-hub",
+        "name": "Workspace",
+        "slug": "workspace",
         "description": null,
         "settings": {},
         "ownerId": "user_3",
@@ -294,8 +294,8 @@ export const dummyWorkspaces = [
         "projects": [
             {
                 "id": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                "name": "Kubernetes Migration",
-                "description": "Migrate the monolithic app infrastructure to Kubernetes for scalability.",
+                "name": "maali bhaiya nursery",
+                "description": "Migrate infrastructure for scalability.",
                 "priority": "HIGH",
                 "status": "ACTIVE",
                 "start_date": "2025-10-15T00:00:00.000Z",
@@ -306,40 +306,11 @@ export const dummyWorkspaces = [
                 "createdAt": "2025-10-13T09:04:30.225Z",
                 "updatedAt": "2025-10-13T09:04:30.225Z",
                 "tasks": [
-                    {
-                        "id": "fc8ac710-ad12-4508-b934-9d59dea01872",
-                        "projectId": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                        "title": "Security Audit",
-                        "description": "Run container vulnerability scans and review IAM roles.",
-                        "status": "TODO",
-                        "type": "OTHER",
-                        "priority": "MEDIUM",
-                        "assigneeId": "user_3",
-                        "due_date": "2025-12-10T00:00:00.000Z",
-                        "createdAt": "2025-10-13T09:05:59.062Z",
-                        "updatedAt": "2025-10-13T09:05:59.062Z",
-                        "assignee": dummyUsers[2],
-                        "comments": []
-                    },
-                    {
-                        "id": "1cd6f85d-889a-4a5b-901f-ed8fa221d62b",
-                        "projectId": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                        "title": "Set Up EKS Cluster",
-                        "description": "Provision EKS cluster on AWS and configure nodes.",
-                        "status": "TODO",
-                        "type": "TASK",
-                        "priority": "HIGH",
-                        "assigneeId": "user_1",
-                        "due_date": "2025-12-15T00:00:00.000Z",
-                        "createdAt": "2025-10-13T09:04:58.859Z",
-                        "updatedAt": "2025-10-13T09:04:58.859Z",
-                        "assignee": dummyUsers[0],
-                        "comments": []
-                    },
+                   
                     {
                         "id": "8125eeac-196d-4797-8b14-21260f46abcc",
                         "projectId": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                        "title": "Implement CI/CD with GitHub Actions",
+                        "title": "Implement new features",
                         "description": "Add build, test, and deploy steps using GitHub Actions.",
                         "status": "TODO",
                         "type": "TASK",
@@ -353,18 +324,7 @@ export const dummyWorkspaces = [
                     }
                 ],
                 "members": [
-                    {
-                        "id": "511552d5-eddd-4b12-a60d-fad0821682a7",
-                        "userId": "user_3",
-                        "projectId": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                        "user": dummyUsers[2],
-                    },
-                    {
-                        "id": "79c364eb-eca5-4056-bea9-46c2f54efe4c",
-                        "userId": "user_1",
-                        "projectId": "c45e93ec-2f68-4f07-af4b-aa84f1bd407c",
-                        "user": dummyUsers[0],
-                    },
+                    
                     {
                         "id": "5fcbda36-d327-4615-bb38-d871a014fe52",
                         "userId": "user_2",
@@ -375,7 +335,7 @@ export const dummyWorkspaces = [
             },
             {
                 "id": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                "name": "Project: Automated Regression Suite",
+                "name": "Path Optimizer",
                 "description": "Selenium + Playwright hybrid test framework for regression testing.",
                 "priority": "MEDIUM",
                 "status": "ACTIVE",
@@ -387,40 +347,11 @@ export const dummyWorkspaces = [
                 "createdAt": "2025-10-13T09:08:30.202Z",
                 "updatedAt": "2025-10-13T09:08:30.202Z",
                 "tasks": [
-                    {
-                        "id": "8836edf0-b4d7-4eec-a170-960d715a0b7f",
-                        "projectId": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                        "title": "Migrate to Playwright 1.48",
-                        "description": "Update scripts to use latest Playwright features.",
-                        "status": "IN_PROGRESS",
-                        "type": "IMPROVEMENT",
-                        "priority": "HIGH",
-                        "assigneeId": "user_1",
-                        "due_date": "2025-10-31T00:00:00.000Z",
-                        "createdAt": "2025-10-13T09:09:15.029Z",
-                        "updatedAt": "2025-10-13T09:09:15.029Z",
-                        "assignee": dummyUsers[0],
-                        "comments": []
-                    },
-                    {
-                        "id": "ce3dc378-f959-42f4-b12b-4c6cae6195c9",
-                        "projectId": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                        "title": "Parallel Test Execution",
-                        "description": "Enable concurrent test runs across CI pipelines.",
-                        "status": "TODO",
-                        "type": "TASK",
-                        "priority": "MEDIUM",
-                        "assigneeId": "user_2",
-                        "due_date": "2025-11-28T00:00:00.000Z",
-                        "createdAt": "2025-10-13T09:09:55.827Z",
-                        "updatedAt": "2025-10-13T09:09:55.827Z",
-                        "assignee": dummyUsers[1],
-                        "comments": []
-                    },
+                  
                     {
                         "id": "e01fda50-8818-4635-bcb6-9cde5c140b3d",
                         "projectId": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                        "title": "Visual Snapshot Comparison",
+                        "title": "find shortest path",
                         "description": "Implement screenshot diffing for UI regression detection.",
                         "status": "TODO",
                         "type": "FEATURE",
@@ -434,18 +365,7 @@ export const dummyWorkspaces = [
                     }
                 ],
                 "members": [
-                    {
-                        "id": "1a0d5a66-c2ca-4294-9735-f3bd287500fa",
-                        "userId": "user_3",
-                        "projectId": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                        "user": dummyUsers[2],
-                    },
-                    {
-                        "id": "5ea89fe0-64b5-4737-a379-a9d89790ea3a",
-                        "userId": "user_1",
-                        "projectId": "b190343f-a7b1-4a40-b483-ecc59835cba3",
-                        "user": dummyUsers[0],
-                    },
+                    
                     {
                         "id": "320b617a-165e-42ec-8065-05da2d10b622",
                         "userId": "user_2",

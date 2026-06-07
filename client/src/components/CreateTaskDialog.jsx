@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addTask } from "../features/workspaceSlice";
 import { format } from "date-fns";
 
 export default function CreateTaskDialog({ showCreateTask, setShowCreateTask, projectId }) {
     const currentWorkspace = useSelector((state) => state.workspace?.currentWorkspace || null);
     const project = currentWorkspace?.projects.find((p) => p.id === projectId);
     const teamMembers = project?.members || [];
+    const dispatch = useDispatch();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
@@ -20,10 +22,34 @@ export default function CreateTaskDialog({ showCreateTask, setShowCreateTask, pr
     });
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
+    if (!projectId) return;
 
+    setIsSubmitting(true);
+
+    const newTask = {
+        id: crypto.randomUUID(),
+        projectId,
+        ...formData,
+        createdAt: new Date().toISOString(),
     };
+
+    dispatch(addTask(newTask));
+
+    setFormData({
+        title: "",
+        description: "",
+        type: "TASK",
+        status: "TODO",
+        priority: "MEDIUM",
+        assigneeId: "",
+        due_date: "",
+    });
+
+    setIsSubmitting(false);
+    setShowCreateTask(false);
+};
 
     return showCreateTask ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 dark:bg-black/60 backdrop-blur">

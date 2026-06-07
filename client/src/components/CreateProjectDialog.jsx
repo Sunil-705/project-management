@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { XIcon } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addProject } from "../features/workspaceSlice";
 
 const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
 
     const { currentWorkspace } = useSelector((state) => state.workspace);
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -20,10 +22,39 @@ const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!currentWorkspace) return;
+
+    setIsSubmitting(true);
+
+    const newProject = {
+        id: crypto.randomUUID(),
+        ...formData,
+        tasks: [],
+        members: currentWorkspace.members || [],
+        createdAt: new Date().toISOString(),
     };
+
+    dispatch(addProject(newProject));
+
+    setFormData({
+        name: "",
+        description: "",
+        status: "PLANNING",
+        priority: "MEDIUM",
+        start_date: "",
+        end_date: "",
+        team_members: [],
+        team_lead: "",
+        progress: 0,
+    });
+
+    setIsSubmitting(false);
+    setIsDialogOpen(false);
+};
+        
 
     const removeTeamMember = (email) => {
         setFormData((prev) => ({ ...prev, team_members: prev.team_members.filter(m => m !== email) }));
@@ -118,9 +149,9 @@ const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
                         >
                             <option value="">Add team members</option>
                             {currentWorkspace?.members
-                                ?.filter((email) => !formData.team_members.includes(email))
+                                ?.filter((member) => !formData.team_members.includes(member.user.email))
                                 .map((member) => (
-                                    <option key={member.user.email} value={member.email}>
+                                    <option key={member.user.email} value={member.user.email}>
                                         {member.user.email}
                                     </option>
                                 ))}
