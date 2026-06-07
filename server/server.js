@@ -12,12 +12,24 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(clerkMiddleware());
 
-app.get("/", (req, res) => {
-  res.send("Server is running");
+// Public health route
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Backend is running",
+  });
 });
 
+// Public root route
+app.get("/", (req, res) => {
+  res.status(200).send("Server is running");
+});
+
+// Clerk middleware
+app.use(clerkMiddleware());
+
+// Inngest route
 app.use(
   "/api/inngest",
   serve({
@@ -31,4 +43,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-export default app;
