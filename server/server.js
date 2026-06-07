@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Public health route
+// Health check route
 app.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
@@ -23,7 +23,7 @@ app.get("/health", (req, res) => {
 
 // Public root route
 app.get("/", (req, res) => {
-  res.status(200).send("Server is running");
+  res.send("Project Management API is running");
 });
 
 // Clerk middleware
