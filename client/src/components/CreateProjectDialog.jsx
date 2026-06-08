@@ -33,7 +33,7 @@ const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
         id: crypto.randomUUID(),
         ...formData,
         tasks: [],
-        members: currentWorkspace.members || [],
+        members: [],
         createdAt: new Date().toISOString(),
     };
 
