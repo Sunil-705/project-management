@@ -1,8 +1,8 @@
 # 🚀 Full Stack Project Management Platform
 
-A modern full-stack Project Management Platform that enables teams to organize projects, manage tasks, assign work, track progress, and collaborate efficiently.
+A modern Project Management Platform that helps teams organize projects, manage tasks, track progress, and collaborate efficiently.
 
-Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authentication, PostgreSQL (Neon), Inngest, and Docker.
+Built with React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authentication, PostgreSQL (Neon), Inngest, Docker, and Local Workspace Persistence.
 
 ---
 
@@ -18,46 +18,64 @@ Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authent
 
 ### 🔐 Authentication & Authorization
 
-* Secure authentication using Clerk
-* User Sign Up & Sign In
-* Session management
+* Secure authentication with Clerk
+* User registration and login
 * Protected routes
+* Session management
 * User profile synchronization
+
+### 🏢 Workspace Management
+
+* Create multiple workspaces
+* Switch between workspaces instantly
+* Workspace-specific projects and tasks
+* Persistent workspace selection
+* Local storage persistence
 
 ### 📁 Project Management
 
-* Create projects
-* Update project details
-* Delete projects
-* View all projects
-* Track project status
+* Create and manage projects
+* Project status tracking
+* Priority management
+* Project progress visualization
+* Project overview dashboard
 
 ### ✅ Task Management
 
 * Create tasks within projects
-* Assign tasks to team members
-* Update task status
-* Set task priorities
-* Manage deadlines
+* Update task details
+* Delete tasks
+* Task priorities (Low, Medium, High)
+* Task status tracking
+* Due date management
+* Task assignment workflow
 
 ### 👥 Team Collaboration
 
-* User management
-* Task assignment workflow
-* Team-based project organization
+* Workspace members management
+* Project member assignment
 * Shared project visibility
+* Team-based organization
 
-### 📊 Dashboard
+### 📊 Dashboard & Analytics
 
-* Project overview
-* Task statistics
-* Progress tracking
-* Activity monitoring
+* Total projects overview
+* Completed projects statistics
+* Assigned task tracking
+* Overdue task monitoring
+* Project progress indicators
+
+### 💾 State Persistence
+
+* Redux Toolkit state management
+* LocalStorage data persistence
+* Workspace persistence across refreshes
+* Offline-friendly data handling
 
 ### ⚡ Event-Driven Architecture
 
 * Inngest integration
-* Automatic Clerk user synchronization
+* Clerk user synchronization
 * User creation events
 * User update events
 * User deletion events
@@ -66,14 +84,14 @@ Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authent
 
 * Prisma ORM
 * PostgreSQL (Neon)
-* Relational data modeling
-* Efficient database queries
+* Relational schema design
+* Optimized database queries
 
 ### 🐳 Containerization
 
 * Docker support
-* Local development environment
-* Consistent deployment workflow
+* Docker Compose configuration
+* Consistent development environment
 
 ---
 
@@ -86,6 +104,7 @@ Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authent
 * React Router DOM
 * Tailwind CSS
 * Axios
+* Lucide React
 
 ### Backend
 
@@ -105,6 +124,11 @@ Built using React, Redux Toolkit, Node.js, Express.js, Prisma ORM, Clerk Authent
 
 * Inngest
 
+### State Management
+
+* Redux Toolkit
+* LocalStorage
+
 ### DevOps
 
 * Docker
@@ -123,16 +147,19 @@ project-management/
 │
 ├── client/
 │   ├── src/
-│   ├── public/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── features/
+│   │   ├── assets/
+│   │   └── store/
 │   └── package.json
 │
 ├── server/
-│   ├── config/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middleware/
 │   ├── prisma/
 │   ├── inngest/
-│   ├── routes/
-│   ├── controllers/
-│   ├── middleware/
 │   └── package.json
 │
 ├── docker-compose.yml
@@ -151,9 +178,7 @@ git clone https://github.com/Sunil-705/project-management.git
 cd project-management
 ```
 
----
-
-## 📦 Frontend Setup
+### Frontend Setup
 
 ```bash
 cd client
@@ -163,15 +188,13 @@ npm install
 npm run dev
 ```
 
-Frontend runs on:
+Frontend:
 
 ```bash
 http://localhost:5173
 ```
 
----
-
-## 🔧 Backend Setup
+### Backend Setup
 
 ```bash
 cd server
@@ -181,7 +204,7 @@ npm install
 npm run server
 ```
 
-Backend runs on:
+Backend:
 
 ```bash
 http://localhost:5000
@@ -191,13 +214,11 @@ http://localhost:5000
 
 ## 🐳 Docker Setup
 
-Start services:
-
 ```bash
 docker compose up -d
 ```
 
-Verify containers:
+Verify:
 
 ```bash
 docker ps
@@ -207,21 +228,11 @@ docker ps
 
 ## 🗄️ Database Setup
 
-Generate Prisma Client:
-
 ```bash
 npx prisma generate
-```
 
-Push Prisma Schema:
-
-```bash
 npx prisma db push
-```
 
-Open Prisma Studio:
-
-```bash
 npx prisma studio
 ```
 
@@ -252,48 +263,22 @@ CLERK_WEBHOOK_SECRET=your_webhook_secret
 INNGEST_EVENT_KEY=your_inngest_event_key
 
 INNGEST_SIGNING_KEY=your_inngest_signing_key
-
-NODE_ENV=development
 ```
 
 ---
 
-## 🚀 Available Scripts
+## 🚀 Key Highlights
 
-### Frontend
-
-```bash
-npm run dev
-npm run build
-npm run preview
-```
-
-### Backend
-
-```bash
-npm run server
-npm start
-```
-
----
-
-## 📸 Screenshots
-
-### Dashboard
-
-*Add Screenshot*
-
-### Project Management
-
-*Add Screenshot*
-
-### Task Board
-
-*Add Screenshot*
-
-### Authentication
-
-*Add Screenshot*
+* Multi-workspace support
+* Redux Toolkit architecture
+* Persistent local storage
+* Project & task management
+* Team collaboration workflow
+* Responsive UI
+* Dark mode support
+* Docker-ready setup
+* Clerk authentication
+* PostgreSQL + Prisma integration
 
 ---
 
@@ -303,21 +288,10 @@ npm start
 * Team chat system
 * File attachments
 * Kanban board
-* Calendar integration
+* Calendar view
 * Email notifications
-* Analytics dashboard
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push the branch
-5. Open a Pull Request
+* Activity timeline
+* Advanced analytics
 
 ---
 
@@ -331,4 +305,4 @@ LinkedIn: https://www.linkedin.com/in/sunil-kumar-aws-devops
 
 ---
 
-⭐ If you found this project useful, consider giving it a star.
+⭐ If you found this project useful, please consider giving it a star.
